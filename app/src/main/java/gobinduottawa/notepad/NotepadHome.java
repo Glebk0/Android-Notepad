@@ -47,62 +47,6 @@ public class NotepadHome extends AppCompatActivity
 
 
 
-        //Label Dropdown Logic
-        Spinner labelSpinner=(Spinner) findViewById(R.id.labelHome) ;
-        notepadDB.createLabelTable();
-        ArrayList<String> allLables=notepadDB.getLabels();
-
-        if(allLables.contains("Add New"))
-        {
-            allLables.remove("Add New");
-        }
-        if(!allLables.contains("Select Label"))
-        {
-            notepadDB.addLabel("Select Label");
-        }
-        ArrayAdapter<String> labelAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, allLables);
-
-
-        labelSpinner.setAdapter(labelAdapter);
-        labelSpinner.setSelection(labelAdapter.getPosition("Select Label"));
-
-        String selectedLabel;
-        labelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
-            {
-                Object item = parent.getItemAtPosition(pos);
-
-                if(!item.toString().equals("Select Label") )
-                {
-                    ArrayList<String> labelItems = notepadDB.getItemsOfThisLabel(item.toString());
-                    if(!labelItems.isEmpty())
-                    {
-                        listAdapter = new ArrayAdapter<String>
-                                (getApplicationContext(), android.R.layout.simple_list_item_1, labelItems);
-                        noteListView.setAdapter(listAdapter);
-                        listAdapter.notifyDataSetChanged();
-                    }
-                }
-                else
-                {
-                    List<NoteEntries> listNotes= notepadDB.getAllNotes();
-                    ArrayList<String> labelItems = notepadDB.getItemsOfThisLabel(item.toString());
-                    for (NoteEntries note:listNotes)
-                    {
-                        labelItems.add(note.getTitle());
-                    }
-                    listAdapter=new ArrayAdapter<String>
-                            (getApplicationContext(), android.R.layout.simple_list_item_1, labelItems);
-                    noteListView.setAdapter(listAdapter);
-                    listAdapter.notifyDataSetChanged();
-                }
-            }
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-
-            }
-        });
 
         //Gettnig all notes in DB into ListView
         List<NoteEntries> listNotes= notepadDB.getAllNotes();
@@ -175,62 +119,6 @@ public class NotepadHome extends AppCompatActivity
         notepadDB.open();
         final ListView noteListView=(ListView) findViewById(R.id.notesList) ;
 
-        //Label Dropdown Logic
-        Spinner labelSpinner=(Spinner) findViewById(R.id.labelHome) ;
-
-        ArrayList<String> allLables=notepadDB.getLabels();
-
-        if(allLables.contains("Add New"))
-        {
-            allLables.remove("Add New");
-        }
-        if(!allLables.contains("Select Label"))
-        {
-            notepadDB.addLabel("Select Label");
-        }
-        ArrayAdapter<String> labelAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, allLables);
-
-
-        labelSpinner.setAdapter(labelAdapter);
-        labelSpinner.setSelection(labelAdapter.getPosition("Select Label"));
-
-        String selectedLabel;
-        labelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
-            {
-                Object item = parent.getItemAtPosition(pos);
-
-                if(!item.toString().equals("Select Label") )
-                {
-                    ArrayList<String> labelItems = notepadDB.getItemsOfThisLabel(item.toString());
-                    if(!labelItems.isEmpty())
-                    {
-                        listAdapter = new ArrayAdapter<String>
-                                (getApplicationContext(), android.R.layout.simple_list_item_1, labelItems);
-                        noteListView.setAdapter(listAdapter);
-                        listAdapter.notifyDataSetChanged();
-                    }
-                }
-                else
-                {
-                    List<NoteEntries> listNotes= notepadDB.getAllNotes();
-                    ArrayList<String> labelItems = notepadDB.getItemsOfThisLabel(item.toString());
-                    for (NoteEntries note:listNotes)
-                    {
-                        labelItems.add(note.getTitle());
-                    }
-                    listAdapter=new ArrayAdapter<String>
-                            (getApplicationContext(), android.R.layout.simple_list_item_1, labelItems);
-                    noteListView.setAdapter(listAdapter);
-                    listAdapter.notifyDataSetChanged();
-                }
-            }
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-
-            }
-        });
 
         //Gettnig all notes in DB into ListView
         List<NoteEntries> listNotes= notepadDB.getAllNotes();

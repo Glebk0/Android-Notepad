@@ -8,18 +8,23 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".NotepadHome">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        <activity android:name=".NotepadHome"
+            android:theme="@style/SCBSwitch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddNotes" />
-        <activity android:name=".EditNotes" />
-        <activity android:name=".ViewNote" />
-        <activity android:name=".AddLabel"></activity>
+        <activity android:name=".AddNotes"
+            android:theme="@style/SCBSwitch" />
+        <activity android:name=".EditNotes"
+            android:theme="@style/SCBSwitch" />
+        <activity android:name=".ViewNote"
+            android:theme="@style/SCBSwitch" />
+        <activity android:name=".AddLabel"
+            android:theme="@style/SCBSwitch"></activity>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

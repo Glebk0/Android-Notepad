@@ -11,34 +11,21 @@ public class NoteEntries {
     int _id;
     String _title;
     String _notes;
-    String _label;
-    String _bold;
-    String _italics;
-    String _underline;
-    String _imagepath;
 
     public NoteEntries() {}
 
-    public NoteEntries(int id, String title, String notes, String Label,String bold, String italics, String underline, String imagepath) {
+    public NoteEntries(int id, String title, String notes) {
         this._id = id;
         this._title = title;
         this._notes = notes;
-        this._label=Label;
-        this._bold=bold;
-        this._italics=italics;
-        this._underline=underline;
-        this._imagepath=imagepath;
+
     }
 
     // constructor
-    public NoteEntries(String title, String notes, String label,String bold, String italics, String underline, String imagepath) {
+    public NoteEntries(String title, String notes) {
         this._title = title;
         this._notes = notes;
-        this._label=label;
-        this._bold=bold;
-        this._italics=italics;
-        this._underline=underline;
-        this._imagepath=imagepath;
+
     }
 
 
@@ -69,48 +56,6 @@ public class NoteEntries {
 
     public void setNotes(String notes) {
         this._notes = notes;
-    }
-
-    public String getLabel() {
-        return this._label;
-    }
+    }}
 
 
-    public void setLabel(String label) {
-        this._label = label;
-    }
-    public String getBold() {
-        return this._bold;
-    }
-
-
-    public void setBold(String bold) {
-        this._bold = bold;
-    }
-    public String getItalics() {
-        return this._italics;
-    }
-
-
-    public void setItalics(String italics) {
-        this._italics = italics;
-    }
-
-    public String getUnderline() {
-        return this._underline;
-    }
-
-    public void setUnderline(String underline) {
-        this._label = underline;
-    }
-
-    public String getImagePath() {
-        return this._imagepath;
-    }
-
-    public void setImagePath(String imagepath) {
-        this._imagepath = imagepath;
-    }
-
-
-}

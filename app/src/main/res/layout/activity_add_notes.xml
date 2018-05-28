@@ -13,43 +13,6 @@
     android:backgroundTint="@color/colorAccent"
     android:background="@color/colorAccent">
 
-    <Switch
-        android:text="Italics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/italics"
-        android:layout_alignBaseline="@+id/bold"
-        android:layout_alignBottom="@+id/bold"
-        android:layout_toRightOf="@+id/bold"
-        android:layout_toEndOf="@+id/bold"
-        android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimary"
-        android:theme="@style/SCBSwitch"/>
-
-    <Switch
-        android:text="Bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bold"
-        android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        app:buttonTint="@color/colorPrimary"
-        android:theme="@style/SCBSwitch"/>
-
-    <Switch
-        android:text="Underline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/underline"
-        android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/italics"
-        android:layout_toEndOf="@+id/italics"
-        android:theme="@style/SCBSwitch"/>
 
     <Spinner
         android:layout_width="300dp"
@@ -93,36 +56,36 @@
 
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addLabelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:id="@+id/addLabelButton"
-        app:backgroundTint="@color/colorPrimary"
-        android:layout_alignTop="@+id/labelAdd"
-        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/saveChangesAdd"
         android:layout_alignParentEnd="true"
-        app:elevation="9dp" />
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="9dp"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <EditText
+        android:id="@+id/notesText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/notesText"
-
-        android:textSize="18sp"
-        android:fontFamily="casual"
-        android:editable="true"
-        android:backgroundTint="@color/colorAccent"
-        android:background="@color/colorAccent"
-        android:hint="Start Writing your Notes....."
-        android:cursorVisible="true"
-        android:layout_below="@+id/line"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
+
+        android:layout_below="@+id/line"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
+        android:cursorVisible="true"
+        android:editable="true"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="Start Writing your Notes....."
+        android:inputType="textMultiLine"
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/saveChangesAdd"
@@ -171,30 +134,6 @@
         android:id="@+id/textView9"
         android:textStyle="normal|bold" />
 
-    <ImageButton
-        android:id="@+id/emailNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/email_icon"
-        android:background="@null"
-
-        android:layout_alignRight="@+id/underline"
-        android:layout_alignEnd="@+id/underline"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_below="@+id/imageView4"
-        android:layout_alignBottom="@+id/addImage" />
-
-    <ImageButton
-        android:id="@+id/addImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/addimage_icon"
-        android:background="@null"
-        android:layout_alignBottom="@+id/sendText"
-        android:layout_toLeftOf="@+id/addLabelButton"
-        android:layout_toStartOf="@+id/addLabelButton" />
-
     <TextView
         android:text="Send Text"
         android:layout_width="wrap_content"
@@ -205,33 +144,6 @@
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignLeft="@+id/sendText"
         android:layout_alignStart="@+id/sendText" />
-
-    <ImageButton
-        android:id="@+id/sendText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/sendastext_icon"
-        android:background="@null"
-
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_alignTop="@+id/saveChangesAdd"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@color/colorAccent"
-        android:layout_marginBottom="13dp"
-        android:id="@+id/imageView4"
-        android:maxHeight="250dp"
-        android:maxWidth="250dp"
-        android:minHeight="130dp"
-        android:minWidth="130dp"
-        android:layout_above="@+id/addImage"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
 
 
 </RelativeLayout>

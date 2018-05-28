@@ -18,43 +18,11 @@ public class AddLabel extends AppCompatActivity {
         final NotepadDB dbObj=new NotepadDB(AddLabel.this);
 
         Button saveLabel=(Button) findViewById(R.id.saveLabel);
-        final EditText labelText=(EditText) findViewById(R.id.LabelView);
-        saveLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                if(labelText.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getBaseContext(), "Please Add Label Name", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    dbObj.addLabel(labelText.getText().toString());
-                    Toast.makeText(getBaseContext(), "Label Added", Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
+        };
 
-        ImageButton goHome=(ImageButton) findViewById(R.id.goHomeLabel);
-        ImageButton goAddNotes=(ImageButton) findViewById(R.id.addNotesScreen);
-        goHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(AddLabel.this, NotepadHome.class));
-            }
-        });
 
-        goAddNotes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(AddLabel.this, AddNotes.class));
-            }
-        });
 
 
 
     }
-}

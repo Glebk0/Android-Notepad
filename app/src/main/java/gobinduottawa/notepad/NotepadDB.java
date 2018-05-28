@@ -21,11 +21,7 @@ public class NotepadDB  extends  SQLiteOpenHelper
     public static final String Column_Title="title";
     public static final String Column_notes="notes";
     public static final String Column_Id="id";
-    public static final String Column_Label="label";
-    public static final String Column_bold="bold";
-    public static final String Column_italics="italics";
-    public static final String Column_underline="underline";
-    public static final String Column_imagepath="imagepath";
+
 
     private static final String Database_Name="notes.db";
     private static final String Datatable_Name="notes";
@@ -61,21 +57,8 @@ public class NotepadDB  extends  SQLiteOpenHelper
         db.close();
     }
 
-    public void createLabelTable() {
-        String createLableTableQuery="Create Table if not exists labels (id integer primary key autoincrement, label text not null)";
-        db=getWritableDatabase();
-        db.execSQL(createLableTableQuery);
-        db.close();
-    }
 
-    public void addLabel(String newLabel) {
-        String addLabelQuery="Insert into labels (label) values ('"+newLabel+"')";
-        Log.d("Add Label Query", addLabelQuery);
-        db=getWritableDatabase();
-        db.execSQL(addLabelQuery);
-        db.close();
 
-    }
 
     public ArrayList<String> getItemsOfThisLabel(String selectedLabel) {
         ArrayList<String> labelItems=new ArrayList<String>();
@@ -120,11 +103,6 @@ public class NotepadDB  extends  SQLiteOpenHelper
         ContentValues values = new ContentValues();
         values.put(Column_Title, note.getTitle());
         values.put(Column_notes, note.getNotes());
-        values.put(Column_Label, note.getLabel());
-        values.put(Column_bold,note.getBold());
-        values.put(Column_italics,note.getItalics());
-        values.put(Column_underline,note.getUnderline());
-        values.put(Column_imagepath,note.getImagePath());
         Log.d("Query",CreateDatabase);
         Log.d("Details",Database_Name +" " +Datatable_Name+" "+Column_Title+" "+Column_notes+" "+Column_Id);
         db.insert(Datatable_Name, null, values);
@@ -135,13 +113,13 @@ public class NotepadDB  extends  SQLiteOpenHelper
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(Datatable_Name, new String[] { Column_Id,
-                        Column_Title, Column_notes,Column_Label,Column_bold,Column_italics,Column_underline,Column_imagepath }, Column_Id + "=?",
+                        Column_Title, Column_notes}, Column_Id + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         NoteEntries note = new NoteEntries(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6), cursor.getString(7));
+                cursor.getString(1), cursor.getString(2));
         db.close();
         return note;
     }
@@ -156,11 +134,7 @@ public class NotepadDB  extends  SQLiteOpenHelper
             thisNote[0]=(cursor.getString(0));
             thisNote[1]=(cursor.getString(1));
             thisNote[2]=(cursor.getString(2));
-            thisNote[3]=(cursor.getString(3));
-            thisNote[4]=(cursor.getString(4));
-            thisNote[5]=(cursor.getString(5));
-            thisNote[6]=(cursor.getString(6));
-            thisNote[7]=(cursor.getString(7));
+
 
         }
         cursor.close();
@@ -182,11 +156,6 @@ public class NotepadDB  extends  SQLiteOpenHelper
                 note.setID(Integer.parseInt(cursor.getString(0)));
                 note.setTitle(cursor.getString(1));
                 note.setNotes(cursor.getString(2));
-                note.setLabel(cursor.getString(3));
-                note.setBold(cursor.getString(4));
-                note.setItalics(cursor.getString(5));
-                note.setUnderline(cursor.getString(6));
-                note.setImagePath(cursor.getString(7));
                 noteList.add(note);
             } while (cursor.moveToNext());
         }
@@ -226,11 +195,6 @@ public class NotepadDB  extends  SQLiteOpenHelper
         ContentValues values = new ContentValues();
         values.put(Column_Title, note.getTitle());
         values.put(Column_notes, note.getNotes());
-        values.put(Column_Label, note.getLabel());
-        values.put(Column_bold, note.getBold());
-        values.put(Column_italics, note.getItalics());
-        values.put(Column_underline, note.getUnderline());
-        values.put(Column_imagepath,note.getImagePath());
         db.update(Datatable_Name, values, Column_Id+ "= "+ rowID,null);
         db.close();
     }

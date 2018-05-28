@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Notepad.iml" filepath="$PROJECT_DIR$/Notepad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Android-Notepad.iml" filepath="$PROJECT_DIR$/.idea/Android-Notepad.iml" />
+      <module fileurl="file://C:\Users\Gleb\Desktop\notepad2\Android-Notepad\Notepad.iml" filepath="C:\Users\Gleb\Desktop\notepad2\Android-Notepad\Notepad.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Gleb\Desktop\notepad2\Android-Notepad\app\app.iml" filepath="C:\Users\Gleb\Desktop\notepad2\Android-Notepad\app\app.iml" />
     </modules>
   </component>
 </project>
